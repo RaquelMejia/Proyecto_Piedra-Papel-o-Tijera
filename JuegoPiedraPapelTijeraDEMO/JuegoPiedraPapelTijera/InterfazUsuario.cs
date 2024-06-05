@@ -1,19 +1,20 @@
-﻿using Spectre.Console;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spectre.Console;
+using System;
+using System.Media;
 
 namespace JuegoPiedraPapelTijera
 {
-    public interface InterfazUsuario
+    public class InterfazUsuario
     {
         public void MostrarMenuPrincipal()
         {
             var menuPrincipal = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\r\n│[bold blue]****************************************************[/]BIENVENIDO[bold blue]********************************************************[/]│\r\n└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘" +
+                    .Title("\n┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\r\n│[bold blue]****************************************************[/]BIENVENIDO[bold blue]********************************************************[/]│\r\n└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘" +
                     "\n\r\n¡Bienvenido al juego de Piedra, Papel o Tijera! Soy Astro, tu oponente ¡Prepárate para divertirte y retar tus habilidades! Que gane el mejor ¡y que empiece la diversión!")
                     .AddChoices("1. Instrucciones", "2. Jugar", "3. Salir"));
 
@@ -36,16 +37,15 @@ namespace JuegoPiedraPapelTijera
 
         }
 
-
         public void MostrarAyuda()
         {
             string[] instrucciones = {
-          "[bold blue]!!!!!INSTRUCCIONES!!!!!!.[/]\n",
-          "\nPiedra vence a tijera.\n",
-          "Papel vence a piedra.\n",
-          "Tijera vence a papel.\n",
-          "Si ambos jugadores eligen la misma opción (por ejemplo, ambos eligen piedra) entonces es un empate.\n"
-      };
+                "[bold blue]!!!!!INSTRUCCIONES!!!!!!.[/]\n",
+                "\nPiedra vence a tijera.\n",
+                "Papel vence a piedra.\n",
+                "Tijera vence a papel.\n",
+                "Si ambos jugadores eligen la misma opción (por ejemplo, ambos eligen piedra) entonces es un empate.\n"
+            };
 
 
             foreach (var linea in instrucciones)
@@ -59,6 +59,8 @@ namespace JuegoPiedraPapelTijera
             Console.ReadKey();
             MostrarMenuPrincipal();
         }
+
+
 
     }
 }
