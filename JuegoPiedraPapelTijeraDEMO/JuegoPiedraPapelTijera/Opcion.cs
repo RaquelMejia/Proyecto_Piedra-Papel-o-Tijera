@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace JuegoPiedraPapelTijera
 {
-    internal class Opcion
+    public enum Opcion
     {
+        Piedra = 1,
+        Papel = 2,
+        Tijera = 3
     }
 }
